@@ -1,24 +1,33 @@
-import {createSlice} from '@reduxjs/toolkit'
-interface ProductSate{
-    name:string;
-    category:string;
-    qty:number;
-}
-const initialState:ProductSate[]=[{name:"shoes",category:"bata",qty:2},
-    {name:"clothes",category:"silk",qty:3},
-    {name:"glasses",category:"gucci",qty:4}
-]
+// store/slices/product.ts
 
-const productSlice=createSlice({
-name:"product",
-initialState,
-reducers:{
-    addProduct(state,action){
-        state.push(action.payload)
-    },
-    deleteProduct(state,action){},
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+
+interface ProductState {
+    name: string;
+    category: string;
+    qty: number;
+    image: string;
+    price: number;  // New price property
 }
+
+const initialState: ProductState[] = [
+    { name: "shoes", category: "bata", qty: 2, image: "https://img.freepik.com/premium-photo/stylish-handsome-boy-portrait_1046319-115661.jpg?semt=ais_hybrid", price: 50 },
+    { name: "clothes", category: "silk", qty: 3, image: "https://img.freepik.com/premium-photo/stylish-handsome-boy-portrait_1046319-115661.jpg?semt=ais_hybrid", price: 100 },
+    { name: "glasses", category: "gucci", qty: 4, image: "https://img.freepik.com/premium-photo/stylish-handsome-boy-portrait_1046319-115661.jpg?semt=ais_hybrid", price: 150 }
+];
+
+const productSlice = createSlice({
+    name: "product",
+    initialState,
+    reducers: {
+        addProduct(state, action: PayloadAction<ProductState>) {
+            state.push(action.payload);
+        },
+        deleteProduct(state, action: PayloadAction<number>) {
+            state.splice(action.payload, 1);
+        },
+    },
 });
-console.log(productSlice)
-export const{addProduct,deleteProduct}=productSlice.actions;
-export default productSlice.reducer
+
+export const { addProduct, deleteProduct } = productSlice.actions;
+export default productSlice.reducer;
