@@ -1,10 +1,11 @@
 "use client";
-import React, { useState } from 'react';
+import React from 'react';
 import { useAppSelector, useAppDispatch } from '../store/hooks';
 import { addCart } from '../store/slices/cart';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Image from 'next/image';
+
 
 const ProductList = () => {
     const products = useAppSelector(state => state.productArray);
@@ -23,9 +24,12 @@ const ProductList = () => {
                         key={i} 
                         className="border border-gray-200 rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition duration-300 bg-white"
                     >
-                        <Image 
+                        <Image
                             src={item.image} 
                             alt={item.name} 
+                            width={500}
+                            height={500}
+                    
                             className="w-full h-64 object-cover"
                         />
                         <div className="p-5">

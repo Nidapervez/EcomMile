@@ -30,7 +30,7 @@ export default function ContactCard() {
 
   // Form logic
   const validateForm = () => {
-    let formErrors: FormType = {
+    const formErrors: FormType = {
       fullName: "",
       email: "",
       subject: "",
