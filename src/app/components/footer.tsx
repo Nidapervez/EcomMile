@@ -21,7 +21,7 @@ export default function Footer() {
               <h2 className="title-font font-medium text-white tracking-widest  mb-3 text-3xl font-mono">
                 LINKS
               </h2>
-              <nav className="flex space-x-16 mb-10  text-3xl font-mono ">
+              <nav className="flex space-x-16 mb-10  text-xl font-mono ">
                 <li>
                   <a 
                     href="https://second-mile-stone-96sf.vercel.app/project" 
