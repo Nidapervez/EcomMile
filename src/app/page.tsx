@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import styles from "./page.module.css";
 
 import Footer from "./components/footer";
@@ -7,11 +8,18 @@ import image from "@/app/public/images/back.jpg"
 
 import Image from "next/image";
 
+=======
+
+import CartList from "./components/cartList";
+
+import ProductList from "./components/productList";
+>>>>>>> 29ad70cce942727eb8f0464d0b19ae439c116da5
 
 
 export default function Home() {
 
   return (
+<<<<<<< HEAD
     <div className="">
        <Navbar/>
  <div className={styles.box}> {/* Use the imported styles */}
@@ -28,6 +36,14 @@ export default function Home() {
       <Footer/>
     
      
+=======
+    <div className="p-5">
+      
+    
+      <ProductList/>
+      <h1 className="mt-24 text-center font-extrabold bg-pink-700">Cart list</h1>
+      <CartList/>
+>>>>>>> 29ad70cce942727eb8f0464d0b19ae439c116da5
     </div>
   );
 }
