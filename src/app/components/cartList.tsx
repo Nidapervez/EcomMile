@@ -1,5 +1,6 @@
 // Define the cart item type if you don't already have one
 "use client";
+import Image from 'next/image';
 
 interface CartItem {
     name: string;
@@ -39,9 +40,11 @@ const CartList = () => {
             <div className='grid grid-cols-3 gap-10 mt-14 p-11'>
                 {cart.map((val: CartItem) => (
                     <div key={`${val.name}-${val.category}`} className='relative border rounded-md overflow-hidden bg-black transform hover:scale-105 transition duration-300 p-4 text-white'>
-                        <img 
+                        <Image 
                             src={val.image} 
                             alt={val.name} 
+                            width={500}
+                            height={500}
                             className='w-full h-64 object-cover mb-2' 
                         />
                         <div className='flex justify-between items-center mb-2'>
