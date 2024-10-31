@@ -20,7 +20,7 @@ const CartList = () => {
     const cart = useAppSelector(state => state.cartArray);
     const dispatch = useAppDispatch();
 
-    const totalPrice = cart.reduce((acc, item: CartItem) => acc + item.price * item.qty, 0);
+    const totalPrice = cart.reduce((acc:any, item: CartItem) => acc + item.price * item.qty, 0);
 
     const handleIncrement = (item: CartItem) => {
         dispatch(updateCartQty({ name: item.name, category: item.category, qty: 1 }));
