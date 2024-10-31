@@ -1,0 +1,28 @@
+.box {
+    text-align: center;
+  }
+  .img{
+
+    align-items: center;
+    justify-content: center;
+    justify-content: space-between;
+    border: 2px solid black;
+    width: 100;
+    position: relative;
+  }
+  .content{
+    color:#fff;
+    font-size: larger;
+    background:rgba(0,0,0,0.1);
+    position:absolute;
+    top: 0;
+    left:-100%;
+    height: 100%;
+    width: 100%;
+    padding: 50px;
+    box-sizing: border-box;
+    transition: all 0.9s;
+  }
+  .img:hover .content{
+    left:0
+  }
