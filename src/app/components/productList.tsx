@@ -6,7 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Image from 'next/image';
 
-interface Product {
+interface ProductState {
     id: string;
     name: string;
     image: string;
@@ -16,10 +16,10 @@ interface Product {
 }
 
 const ProductList = () => {
-    const products: Product[] = useAppSelector(state => state.productArray);
+    const products: ProductState[] = useAppSelector((state) => state.productArray as ProductState[]);
     const dispatch = useAppDispatch();
 
-    const handleAddToCart = (item: Product) => {
+    const handleAddToCart = (item: ProductState) => {
         dispatch(addCart(item));
         toast.success('Your item has been added to the cart!');
     };
@@ -27,7 +27,7 @@ const ProductList = () => {
     return (
         <div className="p-10">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-                {products.map((item, i) => (
+                {products.map((item) => (
                     <div 
                         key={item.id} // Use id as key for better performance
                         className="border border-gray-200 rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition duration-300 bg-white"
