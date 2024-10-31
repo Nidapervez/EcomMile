@@ -1,21 +1,31 @@
+// Define the cart item type if you don't already have one
 "use client";
+
+interface CartItem {
+    name: string;
+    category: string;
+    qty: number;
+    price: number;
+    image: string;
+}
+
+// CartList Component
+
 import React from 'react';
 import { useAppSelector, useAppDispatch } from "../store/hooks";
 import { deleteCart, updateCartQty } from "../store/slices/cart";
 
 const CartList = () => {
-    // Make sure you are using the correct state name
-    const cart = useAppSelector(state => state.cartArray); // Ensure this matches your state slice
+    const cart = useAppSelector(state => state.cartArray);
     const dispatch = useAppDispatch();
 
-    // Calculate total price
-    const totalPrice = cart.reduce((acc, item) => acc + item.price * item.qty, 0);
+    const totalPrice = cart.reduce((acc, item: CartItem) => acc + item.price * item.qty, 0);
 
-    const handleIncrement = (item) => {
+    const handleIncrement = (item: CartItem) => {
         dispatch(updateCartQty({ name: item.name, category: item.category, qty: 1 }));
     };
 
-    const handleDecrement = (item) => {
+    const handleDecrement = (item: CartItem) => {
         if (item.qty > 1) {
             dispatch(updateCartQty({ name: item.name, category: item.category, qty: -1 }));
         } else {
@@ -27,7 +37,7 @@ const CartList = () => {
         <div>
             <h1>Cart</h1>
             <div className='grid grid-cols-3 gap-10 mt-14 p-11'>
-                {cart.map((val) => (
+                {cart.map((val: CartItem) => (
                     <div key={`${val.name}-${val.category}`} className='relative border rounded-md overflow-hidden bg-black transform hover:scale-105 transition duration-300 p-4 text-white'>
                         <img 
                             src={val.image} 
