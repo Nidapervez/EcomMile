@@ -38,7 +38,7 @@
 
   .content {
     left: 0; /* Show content overlay on mobile by default */
-    background: rgba(0, 0, 0, 0.6); /* Darker background for readability */
+    background: rgba(0, 0, 0, 0.1); /* Darker background for readability */
     padding: 20px; /* Reduced padding for mobile */
     font-size: 1rem; /* Smaller font size for mobile */
     text-align: center;
