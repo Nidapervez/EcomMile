@@ -15,7 +15,7 @@ const OrderConfirmationButton = () => {
         <div className="flex justify-center items-center flex-col">
             <button
                 onClick={handleOrderConfirmation}
-                className="bg-green-500 text-white rounded-lg p-2 mt-5 hover:bg-green-600 transition duration-300 mr-[550px] w-96"
+                className="bg-green-500 text-white rounded-lg p-2 mt-5 hover:bg-green-600 transition duration-300 w-full sm:w-96" // Use w-full for mobile and w-96 for larger screens
             >
              Press to Confirm Order
             </button>
